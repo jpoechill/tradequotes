@@ -9,7 +9,7 @@
         
           <div class="w-100 mb-2">
             <transition name="t-fade" appear>
-              <div class="quote-block mt-5 mx-5 mb-3 pt-5 pb-4 px-5 text-white rounded" v-show="showQuote">
+              <div class="quote-block mt-5 mx-5 mb-3 pt-5 pb-5 px-5 text-white rounded" v-show="showQuote">
                 <div>
                   <h1 class="quote-text">
                     "{{ currQuote }}"
