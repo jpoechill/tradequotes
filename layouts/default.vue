@@ -70,7 +70,12 @@ export default {
           quote: 'The key to trading success is emotional discipline. If intelligence were the key, there would be a lot more people making money trading… I know this will sound like a cliche, but the single most important reason that people lose money in the financial markets is that they don’t cut their losses short.',
           author: 'Victor Sperandeo',
           authorSub: 'US-based Trader; also "Trader Vic"'
-        }
+        },
+        {
+          quote: 'Be fearful when others are greedy, and greedy when others are fearful.',
+          author: 'Warren Buffet',
+          authorSub: 'The “Oracle of Omaha”'
+        },
       ]
     }
   },
