@@ -5,13 +5,13 @@
       <div class="position-absolute w-100 text-right font-weight-bold pr-5 mt-3 text-white nav-controls" style="z-index: 999;">
         <span class="fake-link text-white" @click="nextQuote()">NEXT QUOTE</span>
       </div>
-      <div class="position-absolute d-flex align-items-center text-center w-100 min-vh-100">
+      <div class="position-absolute d-flex align-items-center w-100 min-vh-100">
         
           <div class="w-100 mb-2">
             <transition name="t-fade" appear>
               <div class="quote-block mt-5 mx-5 mb-3 pt-5 pb-5 px-5 text-white rounded" v-show="showQuote">
                 <div>
-                  <h1 class="quote-text">
+                  <h1 class="quote-text text-center">
                     "{{ currQuote }}"
                   </h1>
                 </div>
@@ -19,12 +19,19 @@
                   <hr>
                 </div>
                 <div class="mt-1">
-                  <span class="author-text text-uppercase font-weight-bold">
-                    {{ currAuthor }}
-                  </span><br>
-                  <span class="author-sub-text font-weight-light font-italic">
-                    {{ currAuthorSub }}
-                  </span>
+                  <div class="d-flex w-100 justify-content-center">
+                    <div class="p-2 bd-highlight">
+                      <img src="/avatar_02.png" alt="" class="mr-2" style="width: 70px; height: 70px;">
+                    </div>
+                    <div class="p-2 bd-highlight">
+                      <span class="author-text text-left text-uppercase font-weight-bold">
+                        {{ currAuthor }}
+                      </span><br>
+                      <span class="author-sub-text text-left font-weight-light font-italic">
+                        {{ currAuthorSub }}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </transition>
@@ -76,6 +83,16 @@ export default {
           author: 'Warren Buffet',
           authorSub: 'The “Oracle of Omaha”'
         },
+        {
+          quote: 'You can be free. You can live and work anywhere in the world. You can be independent from routine and not answer to anybody.',
+          author: 'Alexander Elder',
+          authorSub: 'Professor, Columbia University'
+        },
+        {
+          quote: 'I believe in analysis and not forecasting.',
+          author: 'Nicolas Darvas',
+          authorSub: 'Dancer; Self-taught Trader'
+        },
       ]
     }
   },
@@ -104,6 +121,9 @@ export default {
     this.currQuote = this.quotes[this.currIndex].quote
     this.currAuthor = this.quotes[this.currIndex].author
     this.currAuthorSub = this.quotes[this.currIndex].authorSub
+
+    let self = this
+    setInterval(() =>  self.nextQuote(), 10000)
   },
 }
 </script>
@@ -158,7 +178,7 @@ html {
 }
 
 .t-fade-enter-active, .t-fade-leave-active {
-  transition: opacity .4s;
+  transition: opacity .8s;
 }
 .t-fade-enter, .t-fade-leave-active {
   opacity: 0;
