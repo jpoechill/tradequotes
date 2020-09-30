@@ -21,7 +21,7 @@
                 <div class="mt-1">
                   <div class="d-flex w-100 justify-content-center">
                     <div class="p-2 bd-highlight">
-                      <img src="/avatar_02.png" alt="" class="mr-2" style="width: 70px; height: 70px;">
+                      <img :src="currAvatar === '' ? '/avatar_02.png' : currAvatar" alt="" class="mr-2" style="width: 70px; height: 70px;">
                     </div>
                     <div class="p-2 bd-highlight">
                       <span class="author-text text-left text-uppercase font-weight-bold">
@@ -50,6 +50,7 @@ export default {
       currQuote: '',
       currAuthor: '',
       currAuthorSub: '',
+      currAvatar: '',
       showQuote: true,
       currIndex: 0,
       quotes: [
@@ -66,7 +67,8 @@ export default {
         {
           quote: 'You don\'t need to be a rocket scientist. Investing is not a game where the guy with the 160 IQ beats the guy with 130 IQ.',
           author: 'Warren Buffet',
-          authorSub: 'The “Oracle of Omaha”'
+          authorSub: 'The “Oracle of Omaha”',
+          img: '/avatars/warren-buffet.png'
         },
         {
           quote: 'Markets are constantly in a state of uncertainty and flux and money is made by discounting the obvious and betting on the unexpected.',
@@ -81,7 +83,8 @@ export default {
         {
           quote: 'Be fearful when others are greedy, and greedy when others are fearful.',
           author: 'Warren Buffet',
-          authorSub: 'The “Oracle of Omaha”'
+          authorSub: 'The “Oracle of Omaha”',
+          img: '/avatars/warren-buffet.png'
         },
         {
           quote: 'You can be free. You can live and work anywhere in the world. You can be independent from routine and not answer to anybody.',
@@ -93,6 +96,34 @@ export default {
           author: 'Nicolas Darvas',
           authorSub: 'Dancer; Self-taught Trader'
         },
+        {
+          quote: 'A lot of people get so enmeshed in the markets that they lose their perspective. Working longer does not necessarily equate with working smarter. In fact, sometimes is the other way around.',
+          author: 'Martin Schwartz',
+          authorSub: 'U.S Investing Champion, 1984'
+        },
+        {
+          quote: 'The secret to being successful from a trading perspective is to have an indefatigable and an undying and unquenchable thirst for information and knowledge.',
+          author: 'Paul Tudor Jones',
+          authorSub: 'Predicted the 1987 Black Monday Crash'
+        },
+        {
+          quote: 'All the math you need in the stock market you get in the fourth grade.',
+          author: 'Peter Lynch',
+          authorSub: 'American Investor, Mutual Fund Manager, Philanthropist',
+          img: '/avatars/peter-lynch.png'
+        },
+        {
+          quote: 'My friends thought I was going to fail.',
+          author: 'Cathie Wood',
+          authorSub: 'CEO, ARK Investment Management',
+          img: '/avatars/cathie-wood.png'
+        },
+        {
+          quote: 'I was an investor doing well and decided to be an entrepreneur.',
+          author: 'Lynn Jurich',
+          authorSub: 'CEO, Sunrun',
+          img: '/avatars/lynn-jurich.png'
+        },
       ]
     }
   },
@@ -100,15 +131,24 @@ export default {
     nextQuote: function () {
       this.currIndex++
 
-      if (this.currIndex >= this.quotes.length) {
-        this.currIndex = 0
-      }
+      // if (this.currIndex >= this.quotes.length) {
+      //   this.currIndex = 0
+      // }
+
+
+      this.currIndex = Math.floor(Math.random() * this.quotes.length); 
 
       this.showQuote = false
 
       let self = this
 
       setTimeout(function () {
+        if (self.quotes[self.currIndex].img) {
+          self.currAvatar = self.quotes[self.currIndex].img
+        } else {
+          self.currAvatar = ''
+        }
+
         self.currQuote = self.quotes[self.currIndex].quote
         self.currAuthor = self.quotes[self.currIndex].author
         self.currAuthorSub = self.quotes[self.currIndex].authorSub
@@ -170,7 +210,7 @@ hr {
 }
 
 html { 
-  background: url(/unsplash_01.jpg) no-repeat center center fixed; 
+  background: url(/unsplash_02.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
