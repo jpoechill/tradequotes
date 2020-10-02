@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="position-relative">
-
-      <div class="position-absolute w-100 text-right font-weight-bold pr-5 mt-3 text-white nav-controls" style="z-index: 999;">
-        <span class="fake-link text-white" @click="nextQuote()">NEXT QUOTE</span>
+      <div class="position-absolute w-100 font-weight-bold px-5 mt-3 text-white nav-controls" style="z-index: 999;">
+        <span class="text-white"><img src="/logo.svg" style="width: 35px; height: 35px;" class="mr-3" alt="">TRADE QUOTES</span>
+        <span class="fake-link text-white float-right" @click="nextQuote()">NEXT QUOTE</span>
       </div>
       <div class="position-absolute d-flex align-items-center w-100 min-vh-100">
         
@@ -12,7 +12,7 @@
               <div class="quote-block mt-5 mx-5 mb-3 pt-5 pb-5 px-5 text-white rounded" v-show="showQuote">
                 <div>
                   <h1 class="quote-text text-center">
-                    "{{ currQuote }}"
+                    “{{ currQuote }}”
                   </h1>
                 </div>
                 <div class="py-1 w-50 mx-auto">
@@ -52,6 +52,7 @@ export default {
       currAuthorSub: '',
       currAvatar: '',
       showQuote: true,
+      queueIsOpen: true,
       currIndex: 0,
       quotes: [
         {
@@ -124,6 +125,18 @@ export default {
           authorSub: 'CEO, Sunrun',
           img: '/avatars/lynn-jurich.png'
         },
+        {
+          quote: 'The ancient Egyptians were amazing, but if aliens built the pyramids, they would\'ve left behind a computer or something',
+          author: 'Elon Musk on Twitter',
+          authorSub: 'CEO, Tesla & Space X',
+          img: '/avatars/elon-musk.png'
+        },
+        {
+          quote: 'Try to figure out what your skill set is and apply that to the markets. If you are really good at accounting, you might be good as a value investor. If you are strong in computers and math, you might do best with a quantitative approach.” “If you aren’t going to be a professional investor, just index.',
+          author: 'Edward O. Thorp',
+          authorSub: 'Options Trader',
+          img: '/avatars/edward-o-thorp.png'
+        },
       ]
     }
   },
@@ -134,7 +147,7 @@ export default {
       // if (this.currIndex >= this.quotes.length) {
       //   this.currIndex = 0
       // }
-
+      this.queueIsOpen = false
 
       this.currIndex = Math.floor(Math.random() * this.quotes.length); 
 
@@ -142,19 +155,22 @@ export default {
 
       let self = this
 
-      setTimeout(function () {
-        if (self.quotes[self.currIndex].img) {
-          self.currAvatar = self.quotes[self.currIndex].img
-        } else {
-          self.currAvatar = ''
-        }
+      if (!self.queueIsOpen) {
+        setTimeout(function () {        
+          if (self.quotes[self.currIndex].img) {
+            self.currAvatar = self.quotes[self.currIndex].img
+          } else {
+            self.currAvatar = ''
+          }
 
-        self.currQuote = self.quotes[self.currIndex].quote
-        self.currAuthor = self.quotes[self.currIndex].author
-        self.currAuthorSub = self.quotes[self.currIndex].authorSub
+          self.currQuote = self.quotes[self.currIndex].quote
+          self.currAuthor = self.quotes[self.currIndex].author
+          self.currAuthorSub = self.quotes[self.currIndex].authorSub
 
-        self.showQuote = true
-      }, 600)
+          self.showQuote = true
+          self.queueIsOpen = true
+        }, 600)
+      }
     }
   },
   mounted() {
