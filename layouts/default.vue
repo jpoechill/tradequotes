@@ -3,7 +3,7 @@
     <div class="position-relative">
       <div class="position-absolute w-100 font-weight-bold px-5 mt-3 text-white nav-controls" style="z-index: 999;">
         <span class="text-white"><img src="/logo.svg" style="width: 35px; height: 35px;" class="mr-3" alt="">TRADE QUOTES</span>
-        <span class="fake-link text-white float-right" @click="nextQuote()">NEXT QUOTE</span>
+        <span class="fake-link text-white float-right" style="margin-top: 3px;" @click="nextQuote()">NEXT QUOTE</span>
       </div>
       <div class="position-absolute d-flex align-items-center w-100 min-vh-100">
         
@@ -134,7 +134,7 @@ export default {
         {
           quote: 'Try to figure out what your skill set is and apply that to the markets. If you are really good at accounting, you might be good as a value investor. If you are strong in computers and math, you might do best with a quantitative approach.” “If you aren’t going to be a professional investor, just index.',
           author: 'Edward O. Thorp',
-          authorSub: 'Options Trader',
+          authorSub: 'Legendary Options Trader',
           img: '/avatars/edward-o-thorp.png'
         },
       ]
