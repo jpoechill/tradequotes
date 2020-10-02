@@ -2,7 +2,7 @@
   <div>
     <div class="position-relative">
       <div class="position-absolute w-100 font-weight-bold px-5 mt-3 text-white nav-controls" style="z-index: 999;">
-        <span class="text-white"><img src="/logo.svg" style="width: 35px; height: 35px;" class="mr-3" alt="">TRADE QUOTES</span>
+        <span class="text-white"><img src="/logo.svg" style="width: 35px; height: 35px;" class="mr-3" alt=""></span>
         <span class="fake-link text-white float-right" style="margin-top: 3px;" @click="nextQuote()">NEXT QUOTE</span>
       </div>
       <div class="position-absolute d-flex align-items-center w-100 min-vh-100">
