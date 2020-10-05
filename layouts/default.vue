@@ -58,12 +58,14 @@ export default {
         {
           quote: 'Every trader has strengths and weakness. Some are good holders of winners, but may hold their losers a little too long. Others may cut their winners a little short, but are quick to take their losses. As long as you stick to your own style, you get the good and bad in your own approach.',
           author: 'Michael Marcus',
-          authorSub: 'Commodities Trader'
+          authorSub: 'Commodities Trader',
+          img: '/avatars/michael-marcus.png'
         },
         {
           quote: 'Markets can remain irrational longer than you can remain solvent.',
           author: 'John Maynard Keynes',
-          authorSub: 'British Economist, Founder of Keynesian Economics'
+          authorSub: 'British Economist, Founder of Keynesian Economics',
+          img: '/avatars/john-maynard.png'
         },
         {
           quote: 'You don\'t need to be a rocket scientist. Investing is not a game where the guy with the 160 IQ beats the guy with 130 IQ.',
@@ -74,12 +76,14 @@ export default {
         {
           quote: 'Markets are constantly in a state of uncertainty and flux and money is made by discounting the obvious and betting on the unexpected.',
           author: 'George Soros',
-          authorSub: 'Philanthropist; also "The Man Who Broke the Bank of England"'
+          authorSub: 'Philanthropist; also "The Man Who Broke the Bank of England"',
+          img: '/avatars/george-soros.png'
         },
         {
           quote: 'The key to trading success is emotional discipline. If intelligence were the key, there would be a lot more people making money trading… I know this will sound like a cliche, but the single most important reason that people lose money in the financial markets is that they don’t cut their losses short.',
           author: 'Victor Sperandeo',
-          authorSub: 'US-based Trader; also "Trader Vic"'
+          authorSub: 'US-based Trader; also "Trader Vic"',
+          img: '/avatars/victor_sperandeo.png'
         },
         {
           quote: 'Be fearful when others are greedy, and greedy when others are fearful.',
@@ -90,22 +94,26 @@ export default {
         {
           quote: 'You can be free. You can live and work anywhere in the world. You can be independent from routine and not answer to anybody.',
           author: 'Alexander Elder',
-          authorSub: 'Professor, Columbia University'
+          authorSub: 'Professor, Columbia University',
+          img: '/avatars/alex-elder.png'
         },
         {
           quote: 'I believe in analysis and not forecasting.',
           author: 'Nicolas Darvas',
-          authorSub: 'Dancer; Self-taught Trader'
+          authorSub: 'Dancer; Self-taught Trader',
+          img: '/avatars/nic-darvas.png'
         },
         {
           quote: 'A lot of people get so enmeshed in the markets that they lose their perspective. Working longer does not necessarily equate with working smarter. In fact, sometimes is the other way around.',
           author: 'Martin Schwartz',
-          authorSub: 'U.S Investing Champion, 1984'
+          authorSub: 'U.S Investing Champion, 1984',
+          img: '/avatars/martin-schwatrz.png'
         },
         {
           quote: 'The secret to being successful from a trading perspective is to have an indefatigable and an undying and unquenchable thirst for information and knowledge.',
           author: 'Paul Tudor Jones',
-          authorSub: 'Predicted the 1987 Black Monday Crash'
+          authorSub: 'Predicted the 1987 Black Monday Crash',
+          img: '/avatars/paul-tudors.png'
         },
         {
           quote: 'All the math you need in the stock market you get in the fourth grade.',
@@ -179,7 +187,11 @@ export default {
     this.currAuthorSub = this.quotes[this.currIndex].authorSub
 
     let self = this
-    setInterval(() =>  self.nextQuote(), 10000)
+    setInterval(() =>  {
+        if (self.queueIsOpen) {
+          self.nextQuote()
+        }
+      }, 10000)
   },
 }
 </script>
