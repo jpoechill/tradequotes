@@ -238,7 +238,7 @@ hr {
 }
 
 html { 
-  background: url(/unsplash_02.jpg) no-repeat center center fixed; 
+  background: url(/unsplash_04.png) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
