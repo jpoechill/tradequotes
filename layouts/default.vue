@@ -163,21 +163,24 @@ export default {
 
       let self = this
 
-      if (!self.queueIsOpen) {
-        setTimeout(function () {        
-          if (self.quotes[self.currIndex].img) {
-            self.currAvatar = self.quotes[self.currIndex].img
-          } else {
-            self.currAvatar = ''
-          }
+      setTimeout(function () {   
+        if (self.quotes[self.currIndex].img) {
+          self.currAvatar = self.quotes[self.currIndex].img
+        } else {
+          self.currAvatar = ''
+        } 
+      }, 800)
 
+
+      if (!self.queueIsOpen) {
+        setTimeout(function () {       
           self.currQuote = self.quotes[self.currIndex].quote
           self.currAuthor = self.quotes[self.currIndex].author
           self.currAuthorSub = self.quotes[self.currIndex].authorSub
 
           self.showQuote = true
           self.queueIsOpen = true
-        }, 600)
+        }, 800)
       }
     }
   },
